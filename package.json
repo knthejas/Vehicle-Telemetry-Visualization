@@ -1,0 +1,12 @@
+{
+  "name": "vehicle-telemetry-visualization",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check src/app.js && node --check src/telemetry.js && node --check tests/telemetry.test.js",
+    "test": "node --test",
+    "lint": "npx --yes --registry=https://registry.npmjs.org eslint@9 ."
+  }
+}

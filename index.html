@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northline Fleet | Telemetry</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Northline home"><span class="brand-mark">N</span><span>NORTHLINE<small>FLEET SYSTEMS</small></span></a>
+        <div class="rail-label">WORKSPACE</div>
+        <a class="nav-item active" href="#fleet"><span class="nav-icon">▦</span>Fleet overview</a>
+        <a class="nav-item" href="#vehicles"><span class="nav-icon">⌖</span>Live vehicles</a>
+        <a class="nav-item" href="#activity"><span class="nav-icon">≋</span>Activity log</a>
+        <div class="rail-bottom"><span class="avatar">JM</span><span>Jordan Miles<small>Fleet operator</small></span><span class="more">···</span></div>
+      </aside>
+
+      <main id="fleet" class="main">
+        <header class="topbar"><div class="crumb">OPERATIONS <span>/</span> FLEET OVERVIEW</div><div class="top-actions"><span class="sync"><i></i> STREAM CONNECTED</span><button class="icon-button" aria-label="Notifications" title="Notifications">♧<b></b></button><span class="today" id="today"></span></div></header>
+        <section class="heading-row"><div><p class="eyebrow"><span id="district-date"></span> <span>•</span> NORTH DISTRICT</p><h1>Fleet overview</h1><p class="subhead">Live telemetry across your active vehicles.</p></div><button class="export" id="export-button"><span>↓</span> Export report</button></section>
+
+        <section class="metrics" aria-label="Fleet summary">
+          <article class="metric"><div class="metric-top"><span>VEHICLES ONLINE</span><span class="metric-icon mint">⌖</span></div><strong id="online-count">—</strong><div class="metric-foot"><span class="green-text">● Live</span> across your fleet</div></article>
+          <article class="metric"><div class="metric-top"><span>IN MOTION</span><span class="metric-icon amber">↗</span></div><strong id="moving-count">—</strong><div class="metric-foot">Vehicles currently moving</div></article>
+          <article class="metric"><div class="metric-top"><span>LOW BATTERY</span><span class="metric-icon coral">▰</span></div><strong id="battery-count">—</strong><div class="metric-foot">Below 25% charge</div></article>
+          <article class="metric"><div class="metric-top"><span>AVG. SPEED</span><span class="metric-icon blue">◷</span></div><strong id="average-speed">—<small> km/h</small></strong><div class="metric-foot">Across moving vehicles</div></article>
+        </section>
+
+        <section class="workspace" id="vehicles">
+          <div class="fleet-panel">
+            <div class="panel-heading"><div><h2>Vehicles <span id="vehicle-total">0</span></h2><p>Monitor location and vehicle health</p></div><button class="dots-button" aria-label="More vehicle options">···</button></div>
+            <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Search vehicle or location" /></label>
+            <div class="filter-row" role="group" aria-label="Filter vehicles"><button class="filter active" data-filter="all">All <span id="filter-all">0</span></button><button class="filter" data-filter="moving">Moving</button><button class="filter" data-filter="idle">Idle</button><button class="filter" data-filter="alert">Alert</button></div>
+            <div class="vehicle-list" id="vehicle-list" aria-live="polite"></div>
+            <div class="list-foot"><span><i></i> Updated just now</span><button id="refresh-button">↻ Refresh</button></div>
+          </div>
+
+          <div class="detail-panel" id="detail-panel" aria-live="polite"></div>
+        </section>
+        <footer>Northline Fleet Systems <span>•</span> Telemetry refreshes every 5 seconds <span class="foot-right">DATA REGION: NORTH / US-WEST-2</span></footer>
+      </main>
+    </div>
+  </body>
+</html>
